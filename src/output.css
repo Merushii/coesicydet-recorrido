@@ -735,6 +735,14 @@ video {
   height: 8rem;
 }
 
+.h-24 {
+  height: 6rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
 .max-h-\[3rem\] {
   max-height: 3rem;
 }
@@ -854,6 +862,10 @@ video {
 
 .border {
   border-width: 1px;
+}
+
+.border-8 {
+  border-width: 8px;
 }
 
 .border-black {
