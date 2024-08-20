@@ -23,7 +23,52 @@
     <div class="w-full h-screen m-0 p-0">
       <iframe src="recorrido/app-files/index.html" frameborder="0" class="w-full h-full"></iframe>
     </div>
-    <h1 class="text-4xl font-bold">Bienvenidos al recorrido virtual</h1>
+
+    <div class="grid grid-cols-2 gap-1 text-center m-14">
+      <div>
+          <h1 class="text-4xl font-bold">Bienvenidos al recorrido virtual</h1>
+          <br>
+          <hr class="border-2 border-[#990444]">
+          <br>
+          <p>Labore proident nisi fugiat nostrud sint mollit aliqua ipsum ad veniam cupidatat ullamco ullamco et. Aliqua tempor do consectetur reprehenderit Lorem aliqua commodo occaecat deserunt. Do eiusmod incididu.
+            Labore proident nisi fugiat nostrud sint mollit aliqua ipsum ad veniam cupidatat ullamco ullamco et. Aliqua tempor do consectetur reprehenderit Lorem aliqua commodo occaecat deserunt. Do eiusmod incididunt</p>
+      </div>
+      <div>
+        <div class="relative flex items-center justify-center">
+          <!-- Botón Izquierdo -->
+          <button id="prevBtn" class="absolute left-16 z-10 bg-[#a00050] text-white p-2 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+          </button>
+      
+          <!-- Carrusel -->
+          <div class="overflow-hidden w-64 h-64 flex justify-center items-center">
+              <div id="carousel" class="flex transition-transform duration-300">
+                  <!-- Imagenes del carrusel -->
+                  <div class="flex-none w-full h-full bg-gray-300 flex justify-center items-center">
+                      <p>COESICYDET</p>
+                  </div>
+                  <div class="flex-none w-full h-full bg-gray-300">
+                    <img src="../images/transparent.webp" alt="Prueba">
+                  </div>
+                  <div class="flex-none w-full h-full bg-gray-300">
+                    <img src="#" alt="Prueba">
+                  </div>
+              </div>
+          </div>
+      
+          <!-- Botón Derecho -->
+          <button id="nextBtn" class="absolute right-16 z-10 bg-[#a00050] text-white p-2 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+          </button>
+      </div>
+      </div>
+    </div>
+    <script src="carrusel.js"></script>
+    
     
   </body>
 </html>
