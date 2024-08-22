@@ -56,6 +56,19 @@ a, a:hover, a:active, a:visited {
   right: 50px;
 }
 
+#vrToggle {
+  position: fixed; /* O usa otro valor si prefieres relativo a otro contenedor */
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+#vrToggle .icon {
+  width: 50px; /* Asegura un tamaño visible */
+  height: 50px;
+}
+
+
 /* If there is a fullscreen button the title bar must make space for it */
 body.fullscreen-enabled #titleBar {
   right: 80px;
