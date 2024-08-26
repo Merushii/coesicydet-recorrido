@@ -389,39 +389,27 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-// Crear la escena de Three.js
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.xr.enabled = true;
-document.body.appendChild(renderer.domElement);
-
-// Cargar la textura de Marzipano y mapearla en una esfera dentro de la escena de Three.js
-const textureLoader = new THREE.TextureLoader();
-const marzipanoTexture = textureLoader.load('path_to_your_marzipano_panorama.jpg'); // Cambia a tu textura
-
-const sphereGeometry = new THREE.SphereGeometry(500, 60, 40);
-sphereGeometry.scale(-1, 1, 1); // Invertir la esfera para verla desde adentro
-
-const sphereMaterial = new THREE.MeshBasicMaterial({ map: marzipanoTexture });
-const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-scene.add(sphere);
-
-// Crear el VR Button
-document.getElementById('vrToggle').addEventListener('click', () => {
-  renderer.xr.enabled = true;
-  renderer.xr.setSession(renderer.xr.getSession() ? null : renderer.xr.startSession());
-});
-
-// Función de animación
-function animate() {
-  renderer.setAnimationLoop(() => {
-    renderer.render(scene, camera);
+  //función para activar el VR
+  document.getElementById('vrToggle').addEventListener('click', function() {
+    // Ajusta los parámetros de vista para Meta Quest
+    var view = viewer.view();
+    view.setParameters({
+      fov: Math.PI / 4,  // Reduce el campo de visión
+      yaw: 0,            // Centro de la vista
+      pitch: 0
+    });
+  
+    // Cambia la resolución o cualquier otro ajuste necesario para VR
+    // Puedes ajustar los límites si es necesario
+    var limiter = Marzipano.RectilinearView.limit.traditional(1024, 60 * Math.PI / 180, 60 * Math.PI / 180);
+    view.setLimiter(limiter);
+    
+    // Inicia la visualización en 360 en el modo optimizado para VR
+    viewer.setIdleMovement(3000, Marzipano.autorotate({
+      yawSpeed: 0.01,
+      targetPitch: 0,
+      targetFov: Math.PI / 4
+    }));
   });
-}
-
-// Iniciar la animación
-animate();
-
 
 })();
